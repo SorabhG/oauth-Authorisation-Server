@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "6c3579f2-c720-4626-9f29-d6cbfada2d82",
+		"name": "oauth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "resource-server",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiIxN2M5MTllMy00ZDVmLTRmYzAtODkzZC0wYjY4MTE5ODUxZGEiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImF1ZCI6Im15LWNsaWVudCIsIm5iZiI6MTc2MjYwMjE3OCwic2NvcGUiOlsicmVhZCJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkwMDAiLCJleHAiOjE3NjI2MDI0NzgsImlhdCI6MTc2MjYwMjE3OCwianRpIjoiYmQ0MDc0MjktMWE4ZS00Y2I2LTgyNDktYjk3Zjc2OTJkZDg2In0.OwW51Db9QMDfFZ1QH2tpN_uHK-s88R-IYkBZSHTg4m64sfFflw-HGGSkAvorfIt871UnPfW-JgRZPoCDntEPntGrD-PBXiax5QBEnRv53mn8lMr2WvnOIop3HFy-7Kf7iDagygh0u_xi4B8dKelqYMlirTn8UMqeBig6cU-hHMSYi45kHPjh1dcbsaeRE9tUDoxBVU1-lrjLb6sUOL_MwjJs30-p9xK2ZKkRje5v9qf2GP2pFoUJBk4sKcyIcoolDJdjmqE-4XajYHiZecCzn5zZKCWUwj4BZ-wqozICk2WpIGHnEhfQtQz-brL3Gyh5E7ZTLqP4V2PbPil8JYEQFg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/secure",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"secure"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9000/oauth2/token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "my-client",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "my-secret",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "eSZOGKZVyyUHB0O8bbf-3xnXBZA6plcSIFRZETHMnae1p2IumauOaA_DiGnUpJhDJ9NDp1jLja-Mf_UIyqdO3YkBrBwgJRTJu2FSj9O42el31Ab0ZjH75o5sVsjuSu6r",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://127.0.0.1:8081/login/oauth2/code/my-client",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9000/oauth2/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "oauth2/token --encrypted Secret",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic bXktY2xpZW50Om15LXNlY3JldA=="
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "A5JpfJ2icuiK2GS5eqCDaPUieieuHEcY7IsWhybrnAePIKR5II0UzUjba6yFdwpWVQTdZcH33HJCwO_vJBUzVcjF-gFxh35e3btnTQay4hLgsmnxllQ7BQbc8VZkU2h1",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://127.0.0.1:8081/login/oauth2/code/my-client",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9000/oauth2/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
