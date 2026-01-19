@@ -3,3 +3,6 @@ spring:
     name: auth-server
 server:
   port: 9000
+  authorization-server:
+    token:
+      access-token-time-to-live: 10

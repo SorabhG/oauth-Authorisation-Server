@@ -9,6 +9,7 @@ mvn spring-boot:run -f resource-server/pom.xml
 2️⃣ Open browser and request authorization code:
 
 http://localhost:9000/oauth2/authorize?response_type=code&client_id=my-client&redirect_uri=http://127.0.0.1:8081/login/oauth2/code/my-client&scope=read
+http://localhost:9000/oauth2/authorize?response_type=code&client_id=my-client&redirect_uri=http://127.0.0.1:8081/login/oauth2/code/my-client&scope=read
 
 
 3️⃣ Login → Copy authorization code from redirect URL
@@ -42,3 +43,8 @@ Authorization: Bearer <access_token>
 ✅ Output:
 
 Welcome, user! You accessed a protected resource.
+
+
+
+
+
